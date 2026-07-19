@@ -445,9 +445,9 @@ body::after{content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;o
       <div class="auth-sub">Ingresa con tus credenciales para acceder a tu área operativa.</div>
       <div class="auth-error" id="login-error"></div>
       <label class="field-label">Correo electrónico</label>
-      <input class="field-input" id="login-email" type="email" placeholder="tu@corazondejaguar.mx">
+      <input class="field-input" id="login-email" name="email" type="email" autocomplete="username" placeholder="tu@corazondejaguar.mx">
       <label class="field-label">Contraseña</label>
-      <input class="field-input" id="login-pass" type="password" placeholder="••••••••">
+      <input class="field-input" id="login-pass" name="password" type="password" autocomplete="current-password" placeholder="••••••••">
       <button class="auth-btn" onclick="doLogin()">Ingresar →</button>
       <div class="auth-footer">
         ¿No tienes cuenta? <span style="color:var(--cj);cursor:pointer;font-weight:600;" onclick="switchTab('registro')">Regístrate</span><br>
