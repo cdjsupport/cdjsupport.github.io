@@ -812,7 +812,7 @@ async function procesarPago() {
 }
 
 /* ══════════════════════════════════════════════════════
-   CONTROL DE TURNO — DMZ Kitchen Support
+   CONTROL DE TURNO — LiTa Support
    Apertura autorizada · Cierre con PIN · Dashboard histórico
 ══════════════════════════════════════════════════════ */
 
@@ -1603,7 +1603,7 @@ function eliminarEquipo(id) {
 }
 
 /* ══════════════════════════════════════════════════════
-   MOTOR DE SCORING — DMZ Kitchen Support
+   MOTOR DE SCORING — LiTa Support
    Score global por turno · Reporte de conductas · Cierre
 ══════════════════════════════════════════════════════ */
 
@@ -1905,7 +1905,7 @@ function generarEmailTurno(score) {
     + '<div><p style="color:#15803D;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px">✓ Conductas correctas</p><ul style="padding-left:16px;margin:0">'+correctasHtml+'</ul></div>'
     + '<div><p style="color:#EA580C;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;margin:0 0 6px">↑ Deben mejorar</p><ul style="padding-left:16px;margin:0">'+mejorasHtml+'</ul></div>'
     + '</div>'
-    + '<p style="margin-top:20px;font-size:11px;color:#9CA3AF">Generado automáticamente · De la Mora Zumarán Kitchen Support</p>'
+    + '<p style="margin-top:20px;font-size:11px;color:#9CA3AF">Generado automáticamente · LiTa Support</p>'
     + '</div></div>';
 }
 
@@ -3285,7 +3285,7 @@ function generarReportePDFTurno() {
         + merma.map(function(m){return '<tr><td>'+m.producto+'</td><td>'+m.area+'</td><td>'+m.cantidad+' '+m.unidad+'</td><td>'+m.causa+'</td><td class="'+(parseFloat(m.costo)>100?'err':'')+'">$'+parseFloat(m.costo||0).toFixed(2)+'</td></tr>';}).join('')
         + '</tbody></table>' : '')
 
-    + '<div class="footer">Generado automáticamente · De la Mora Zumarán Kitchen Support · ' + new Date().toLocaleString('es-MX') + '</div>'
+    + '<div class="footer">Generado automáticamente · LiTa Support · ' + new Date().toLocaleString('es-MX') + '</div>'
     + '<div class="no-print" style="margin-top:24px;text-align:center">'
     + '<button onclick="window.print()" style="background:#1A1A18;color:#fff;border:none;border-radius:8px;padding:12px 28px;font-size:14px;cursor:pointer;margin-right:10px">🖨 Imprimir / Guardar PDF</button>'
     + '<button onclick="window.close()" style="background:#f3f4f6;color:#374151;border:none;border-radius:8px;padding:12px 24px;font-size:14px;cursor:pointer">Cerrar</button>'
@@ -3655,7 +3655,7 @@ function guardarRevisionBanos() {
 
 /* ══════════════════════════════════════════════════════
    NOTIFICACIONES POR ROL + FOTOS EN SCORING
-   Routing inteligente · Propietario / Gerente / DMZ
+   Routing inteligente · Propietario / Gerente / LiTa Support
 ══════════════════════════════════════════════════════ */
 
 /* ─ FOTOS → SCORING ────────────────────────────────── */
@@ -3740,7 +3740,7 @@ function generarReportePorRol(score, destinatarios) {
   var sc   = typeof scoreColor === 'function' ? scoreColor : function(){return '#333';};
   var fecha = new Date().toLocaleDateString('es-MX',{day:'numeric',month:'long'});
 
-  // Reporte COMPLETO (DMZ y propietario en alertas críticas)
+  // Reporte COMPLETO (LiTa Support y propietario en alertas críticas)
   function reporteCompleto(dest) {
     return {
       to:      dest.email,
@@ -3810,8 +3810,8 @@ function getDestinatarios() {
     if(stored && stored.length) return stored;
   } catch(e){}
   return [
-    {nombre:'Mario DMZ',  email:'mario@delamorazumaran.com',  rol:'dmz',        activo:true},
-    {nombre:'Blanca DMZ', email:'blanca@delamorazumaran.com', rol:'dmz',        activo:true},
+    {nombre:'Mario LiTa Support',  email:'mario@delamorazumaran.com',  rol:'dmz',        activo:true},
+    {nombre:'Blanca LiTa Support', email:'blanca@delamorazumaran.com', rol:'dmz',        activo:true},
   ];
 }
 function saveDestinatarios(d) { localStorage.setItem('vk_destinatarios', JSON.stringify(d)); }
@@ -3873,7 +3873,7 @@ function abrirAgregarDestinatario() {
     + '<div class="usr-field" style="margin-bottom:12px"><label>Nombre <span>*</span></label><input type="text" id="destNombre" placeholder="Nombre completo"></div>'
     + '<div class="usr-field" style="margin-bottom:12px"><label>Email <span>*</span></label><input type="email" id="destEmail" placeholder="correo@ejemplo.com"></div>'
     + '<div class="usr-field" style="margin-bottom:12px"><label>Rol</label>'
-    + '<select id="destRol"><option value="propietario">Propietario</option><option value="gerente">Gerente</option><option value="supervisor">Supervisor</option><option value="dmz">DMZ (control absoluto)</option></select></div>'
+    + '<select id="destRol"><option value="propietario">Propietario</option><option value="gerente">Gerente</option><option value="supervisor">Supervisor</option><option value="dmz">LiTa Support (control absoluto)</option></select></div>'
     + '<div class="usr-field"><label>WhatsApp (con código país)</label><input type="tel" id="destWA" placeholder="+5255XXXXXXXX"></div>'
     + '</div><div class="usr-modal-footer">'
     + '<button class="btn btn-ghost" onclick="document.getElementById(\'destModal\').remove()">Cancelar</button>'
